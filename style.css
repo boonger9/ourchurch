@@ -1,0 +1,707 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-color: #1A4B82; /* 프로필 사진의 블루 톤에 맞춤 */
+    --secondary-color: #356BA5; /* 은은한 블루 포인트 */
+    --text-main: #333333;
+    --text-muted: #666666;
+    --bg-light: #f4f7fa; /* 푸른빛이 살짝 도는 밝은 배경 */
+    --bg-white: #ffffff;
+    --accent: #E8F1F8; /* 부드러운 스카이블루 강조색 */
+    
+    --font-serif: 'Nanum Myeongjo', serif;
+    --font-sans: 'Pretendard', sans-serif;
+
+    --header-height: 70px;
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s ease;
+}
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 1rem auto 0;
+}
+
+/* --- Header & Navigation --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 60px;
+    width: auto;
+    transition: transform var(--transition-fast);
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+
+
+.nav .menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav .menu a {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.nav .menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width var(--transition-fast);
+}
+
+.nav .menu a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.sub-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-white);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    border-top: 1px solid #eee;
+}
+
+.sub-menu li {
+    width: 100%;
+}
+
+.sub-menu a {
+    display: block;
+    width: 100%;
+    padding: 1rem 5%;
+    color: var(--text-main);
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sub-menu a:hover {
+    background-color: var(--bg-light);
+    color: var(--secondary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: url('pexels-bible-1846174.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--bg-white);
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    line-height: 1.3;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    opacity: 0.9;
+}
+
+/* --- Intro Section --- */
+.intro-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.pastors-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.intro-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3/4;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    object-fit: cover;
+    object-position: top center;
+}
+
+.profile-img-placeholder {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3/4;
+    height: auto;
+    background-color: var(--bg-light);
+    border: 2px dashed #b0c4de;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.profile-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.greeting-content {
+    margin-bottom: 2rem;
+}
+
+.greeting-content .highlight {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: var(--font-serif);
+    margin-bottom: 1.5rem;
+}
+
+.greeting-content p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.theology-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.theology-tags span {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theology-tags span:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Worship Section --- */
+.worship-section {
+    background-color: var(--bg-light);
+}
+
+.churchTime {
+    text-align: center;
+}
+
+.worship-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.worship-list li {
+    background: var(--bg-white);
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.worship-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.worship-list h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.worship-list h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.worship-list p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.worship-list p strong {
+    color: var(--primary-color);
+}
+
+.btnArea {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.btn.purple {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    box-shadow: 0 4px 10px rgba(108, 91, 123, 0.3);
+}
+
+.btn.purple:hover {
+    background-color: #5a4b66;
+    box-shadow: 0 6px 15px rgba(108, 91, 123, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- Sermon Section --- */
+.sermon {
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Library Section --- */
+.library {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    text-align: center;
+}
+
+.library .section-title {
+    color: var(--bg-white);
+}
+
+.library .section-title::after {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.library p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.library-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.library-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255,255,255,0.1);
+    color: var(--bg-white);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: all var(--transition-fast);
+}
+
+.library-btn:hover {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+}
+
+/* --- Location Section --- */
+.map-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+}
+
+.map-info {
+    text-align: center;
+}
+
+.map-info p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.map-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #ffe812; /* 카카오스타일 옐로우 */
+    color: #333;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #1a1a1a;
+    color: #aaaaaa;
+    padding: 3rem 0;
+    border-top: 1px solid #333;
+}
+
+.footer-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-info h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-info h2 span {
+    font-weight: 400;
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-info a {
+    transition: color 0.2s;
+}
+
+.footer-info a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* --- Animations --- */
+.hover-float {
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+    display: inline-block;
+}
+
+.hover-float:hover {
+    transform: translateY(-5px);
+    color: var(--secondary-color);
+}
+
+.hover-float-inline {
+    transition: color 0.3s ease;
+}
+
+.hover-float-inline:hover {
+    color: var(--secondary-color) !important;
+}
+
+.section-title:hover {
+    transform: translateY(-3px);
+    color: var(--secondary-color);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.hero-text-hover {
+    transition: transform 0.3s ease-out, color 0.3s ease-out, text-shadow 0.3s ease-out;
+    display: inline-block;
+}
+
+.hero-text-hover:hover {
+    transform: translateY(-5px);
+    color: var(--bg-white);
+    text-shadow: 0 5px 15px rgba(255,255,255,0.5);
+}
+
+.particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.25, 1), transform 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUpAnim 1.2s forwards cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+@keyframes slideUpAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 {
+    animation-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+/* --- Responsive Layouts --- */
+@media screen and (max-width: 900px) {
+    .intro-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .worship-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav .menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h3 {
+        font-size: 1.2rem;
+    }
+
+    .worship-list {
+        grid-template-columns: 1fr;
+    }
+
+    .worship-list li {
+        padding: 2rem 1.5rem;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .library-buttons {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    .library-btn {
+        justify-content: center;
+    }
+}

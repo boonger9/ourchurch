@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="대구우리교회 - 바른 신학, 바른 교회, 바른 생활. 상처는 별이 되고, 절망은 소망이 됩니다.">
+    <title>대구우리교회</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Load Pretendard via CDN -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="style.css">
+<body>
+
+    <!-- 안티그래비티 효과 (파티클 캔버스) -->
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
+    <!-- 0. Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo-link"><img src="logo.png" alt="대구우리교회" class="header-logo"></a>
+            <nav class="nav">
+                <ul class="menu" id="menu">
+                    <li><a href="#intro">이곳은</a></li>
+                    <li><a href="#worship">예배안내</a></li>
+                    <li><a href="#sermon">설교말씀</a></li>
+                    <li><a href="#library">자료실</a></li>
+                    <li><a href="#location">오시는 길</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        <!-- 모바일 드롭다운 메뉴 (요청하신 sub-menu 형태 차용) -->
+        <ul class="sub-menu" id="mobile-menu" style="display: none;">
+            <li><a href="#intro" class="mobile-link">이곳은</a></li>
+            <li><a href="#worship" class="mobile-link">예배안내</a></li>
+            <li><a href="#sermon" class="mobile-link">설교말씀</a></li>
+            <li><a href="#library" class="mobile-link">자료실</a></li>
+            <li><a href="#location" class="mobile-link">오시는 길</a></li>
+        </ul>
+    </header>
+
+    <!-- 1. Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2 class="slide-up hero-text-hover">바른 신학,<br>바른 교회,<br>바른 생활</h2>
+            <br>
+            <h3 class="slide-up delay-1 hero-text-hover">상처는 별이 되고, 절망은 소망이 됩니다.</h3>
+        </div>
+    </section>
+
+    <!-- 2. Intro -->
+    <section class="section intro" id="intro">
+        <div class="container intro-container">
+            <div class="pastors-container">
+                <div class="intro-profile fade-in">
+                    <!-- 담임목사 -->
+                    <img src="profile.jpg" alt="이상후 목사" class="profile-img">
+                    <div class="profile-text">
+                        <h3>담임목사 이상후</h3>
+                        <p>합신대학원 M.div. 32회</p>
+                    </div>
+                </div>
+                <div class="intro-profile fade-in delay-1">
+                    <!-- 원로목사 -->
+                    <img src="profile2.jpg" alt="김용원 목사" class="profile-img">
+                    <div class="profile-text">
+                        <h3>원로목사 김용원</h3>
+                        <p>오병이어 선교회 대표</p>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-greeting fade-in delay-1">
+                <h2 class="section-title">인사말</h2>
+                <div class="greeting-content">
+                    <p class="highlight">"상처는 별이 되고, 절망은 소망이 됩니다."</p>
+                    <p>세상살이에 할퀴어진 마음의 상처, 안개처럼 뿌연 내일, <br>
+                    내 힘으로는 도저히 넘을 수 없는 한계 앞에 서 계신가요?</p>
+                    <p>죽음을 이기고 다시 사신 예수님의 부활은 <br>
+                    우리의 절망이 결코 마지막이 아님을 증명합니다.<br>
+                    그 든든한 소망의 손을 잡고, 우리 함께 다시 일어나 걷고 싶습니다.</p>
+                    <p>부활의 주님이 주시는 참된 승리가 <br>
+                    당신의 삶에 가득하길 축복합니다.</p>
+                </div>
+                <div class="theology-tags">
+                    <span># 바른 신학</span>
+                    <span># 바른 교회</span>
+                    <span># 바른 생활</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Worship -->
+    <section class="section worship-section" id="worship">
+        <div class="container fade-in">
+            <!-- 요청하신 형태의 교회시간 안내 -->
+            <div class="churchTime" id="churchTime">
+                <h2 class="section-title">우리의 모임 안내</h2>
+                <ul class="worship-list">
+                    <li>
+                        <h3>주일예배</h3>
+                        <p><strong>주일낮예배:</strong> 주일 오전 11:00</p>
+                        <p><strong>주일오후예배:</strong> 주일 오후 01:30</p>
+                        <p><strong>교회학교:</strong> 주일 오전 10:20</p>
+                        <p><strong>청년부 모임:</strong> 주일 오후 12:30 본당</p>
+                    </li>
+                    <li>
+                        <h3>기도회</h3>
+                        <p><strong>수요기도회:</strong> 수요일 저녁 7:30</p>
+                        <p><strong>토요기도회:</strong> 토요일 저녁 7:00</p>
+                        <p><strong>새벽기도회:</strong> 월~금 새벽 5:30</p>
+                    </li>
+                    <li>
+                        <h3>기타 모임</h3>
+                        <p class="hover-float"><strong>일대일 제자양육 모임 (두란노)</strong><br>시간: 개별상담 후 협의</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Sermon -->
+    <section class="section sermon" id="sermon">
+        <div class="container fade-in">
+            <h2 class="section-title">최신 설교</h2>
+            <div class="video-container">
+                <!-- 유튜브 재생목록 임베드 (Nocookie & Sandbox 파라미터 추가로 153 오류 회피) -->
+                <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLQ2-cB_EoDgo_3mMrKwGXQNdKzw__LfxV&disablekb=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups allow-presentation"></iframe>
+            </div>
+            <div class="btnArea">
+                <a href="https://www.youtube.com/@daegoowooree" class="btn medium purple btn-sermon" target="_blank">유튜브채널 바로가기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Library -->
+    <section class="section library" id="library">
+        <div class="container fade-in">
+            <h2 class="section-title">자료실</h2>
+            <p>교회의 주보 및 교육 자료들을 확인하실 수 있습니다.</p>
+            <div class="library-buttons">
+                <a href="https://drive.google.com/drive/folders/1wq-kWBV9ICjy8fpJdPqkHN_4aBzT_x6A?usp=sharing" class="library-btn" target="_blank">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    주보 보기
+                </a>
+                <a href="https://drive.google.com/drive/folders/1Yu5Vf6uGc_FCo6MVWUcMtUxCNx_JSf32?usp=sharing" class="library-btn" target="_blank">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5.41 12H12v-2h-2v2H8.41L11 13.41V10h2v3.41L15.59 18z"/></svg>
+                    교육 자료
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Location -->
+    <section class="section location" id="location">
+        <div class="container fade-in">
+            <h2 class="section-title">오시는 길</h2>
+            <div class="map-container">
+                <!-- 구글맵 정확한 마킹 -->
+                <iframe src="https://maps.google.com/maps?q=대구광역시%20동구%20메디밸리로%205-2&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="map-info">
+                <p>대구우리교회<br>대구 동구 메디밸리로 5-2 3층<br><span style="font-size:0.9rem; color:#666;">(지번) 대림동 890-5</span></p>
+                <a href="https://map.kakao.com/link/search/대구 동구 메디밸리로 5-2" class="map-btn" target="_blank">카카오맵 길찾기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Contact -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h2>대구우리<span>교회</span></h2>
+                    <p style="font-weight: bold; margin-bottom: 1rem; color: #fff;">대한예수교장로회(합신)</p>
+                    <p>담임목사: 이상후 / 원로목사: 김용원</p>
+                    <p>주소: 대구 동구 메디밸리로 5-2 3층 (대림동 890-5)</p>
+                    <p>전화: <a href="tel:053-964-3230" class="hover-float-inline">053-964-3230</a></p>
+                    <p>이메일: <a href="mailto:ssam235@naver.com" class="hover-float-inline">ssam235@naver.com</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 대구우리교회. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
